@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:08:29 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/24 18:04:46 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/25 14:22:52 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 #include "so_long.h"
 #include "string.h"
 
-#define KEY_W 119
-#define KEY_A 97
-#define KEY_S 115
-#define KEY_D 100
+
 void	move_image(int key_code, t_data img)
 {
 	if (key_code == KEY_W)
