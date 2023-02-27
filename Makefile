@@ -6,7 +6,7 @@
 #    By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 15:25:26 by mhajji-b          #+#    #+#              #
-#    Updated: 2023/02/24 18:02:23 by mhajji-b         ###   ########.fr        #
+#    Updated: 2023/02/27 17:34:41 by mhajji-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ NAME			=	so_long
 
 CC				=	gcc
 
-CFLAGS			=	-g
+CFLAGS			=	-g -Wall -Werror -Wextra -g3
 
 RM				=	rm -f
 

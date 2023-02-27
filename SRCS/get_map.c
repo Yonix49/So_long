@@ -6,12 +6,12 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:15:01 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/24 11:15:18 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:22:22 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-char	**get_map(char **map, char **argv)
+char	**get_map(t_data *img, char **argv)
 {
 	int		fd;
 	char	*line;
@@ -27,7 +27,7 @@ char	**get_map(char **map, char **argv)
 			free(tmp);
 			break ;
 		}
-		line = ft_strjoin_1(line, tmp);
+		line = ft_strjoin(line, tmp);
 		free(tmp);
 	}
 	close(fd);
@@ -36,26 +36,26 @@ char	**get_map(char **map, char **argv)
 		free(line);
 		return (NULL);
 	}
-	map = ft_split(line, '\n');
+	img->map = ft_split(line, '\n');
 	free(line);
-	return (map);
+	return (img->map);
 }
 
 
-char	**copy_map(char **map, t_data img)
+char	**copy_map(t_data *img)
 {
 	char	**copy;
 	int		i;
 
-	img.cord = get_map_ligne(map, img.cord);
-	printf("ligne = img.cord == %i            ", img.cord.lig);
-		copy = malloc(sizeof(char *) * (img.cord.lig + 1));
+	img->cord = get_map_ligne(img->map, img->cord);
+	printf("ligne = img.cord == %i            ", img->cord.lig);
+		copy = malloc(sizeof(char *) * (img->cord.lig + 1));
 	if (!copy)
 		return (NULL);
 	i = 0;
-	while (map[i])
+	while (img->map[i])
 	{
-		copy[i] = ft_strdup(map[i]);
+		copy[i] = ft_strdup(img->map[i]);
 		i++;
 	}
 	copy[i] = NULL;// Si jenleve je regle invalid read size mais 

@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:09:58 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/27 14:58:02 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:47:37 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,16 @@ char			**ft_split(char *s, char c);
 int				verif_bords(char **map);
 
 int				verif_map(char **map);
-
+int				is_char_sett(char *map);
+int				verif_open(char **argv);
+int				ft_strcmp(const char *s1, const char *s2);
 int				verif_elem(char **map);
+int				is_valid_path_exit(char **map, struct cord pos);
+int				verif_namearg(int argc, char **argv);
+int				verifall(char **map);
+// PARSING
+char	**get_map(t_data *img, char **argv);
+char			**copy_map(t_data *img);
 struct cord		get_map_ligne(char **map, struct cord cord);
 
 struct cord		get_map_col(char **map, struct cord cord);
@@ -99,34 +107,20 @@ struct cord		cord_exit(char **map, struct cord cord);
 
 struct cord		cord_all(char **map, struct cord pos);
 
-int				is_valid_path_exit(char **map, struct cord pos);
-char			*ft_strjoin1(char const *s1, char const *s2);
-int				ft_strcmp(const char *s1, const char *s2);
-int				verif_namearg(int argc, char **argv);
-char			*ft_strjoin_1(char *s1, char *s2);
-int				verifall(char **map);
 void			ft_free_double(char **map, char **tmp);
 void			ft_free(char **map);
-int				verif_open(char **argv);
-int				is_char_sett(char *map);
-t_data			init_image(t_data img, char **map);
-void			set_display(t_data img, char **map);
-void			display_window(t_data img, char **map);
-char			**get_map(char **map, char **argv);
-char			**copy_map(char **map, t_data img);
-void			move_char(t_data img);
-int				key_hook(int key_code, t_data img, char **map);
-t_data			get_cord_player(t_data img, char **map);
+
+
+
+
+
 int				verif_co(char **map);
-// unsigned int		get_color_pixel(t_data_engine *engine, void *img, int y,
-// 						int x);
+t_data	*init_image(t_data *img);
+void	set_display(t_data *img);
+void	display_window(t_data *img);
+void		set_display(t_data *img);
 
-// void				my_mlx_pixel_put(t_data_engine *data, int x, int y,
-// 						int color);
-
-// void				put_pixel(t_data_engine *engine, void *img, int y, int x);
-
-// void				set_element_on_display(t_data_engine *engine);
-
-// void				display_map(t_data_engine *engine);
+void		move_image(int key_code, t_data *img);
+int			key_hook(int key_code, t_data *img);
+t_data	*get_cord_player(t_data *img);
 #endif
