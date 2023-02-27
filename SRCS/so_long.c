@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:08:29 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/25 14:22:52 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:59:04 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,25 @@
 #include "string.h"
 
 
-void	move_image(int key_code, t_data img)
+t_data	move_image(int key_code, t_data img)
 {
+	img.y = 0;
+	img.x = 0;
 	if (key_code == KEY_W)
-	{
-		printf("w");
 		img.y -= 32;            // Déplacer l'image vers le haut
-	}		  // Touche W
 	else if (key_code == KEY_A) // Touche A
-		{
 			img.x -= 32;
-			printf("x");            // Déplacer l'image vers la gauche
-		}
 	else if (key_code == KEY_S)
-	{
-		printf("y");
 		img.y += 32;            // Déplacer l'image vers le bas
-	} // Touche S
 	else if (key_code == KEY_D) // Touche D
-	{
-		printf("D");
 		img.x += 32; // Déplacer l'image vers la droite
-	}
-	printf("X == %i // Y == %i\n", img.x, img.y);
 }
 int	key_hook(int key_code, t_data img, char **map)
 {
-	// move_image(key_code, img);
+	img = move_image(key_code, img);
 	
 	printf("%d\n", key_code);
+	printf("")
 	// img = get_cord_player(img, map);                                         
 	// 	// Déplacer l'image en fonction de la touche enfoncée
 	// mlx_put_image_to_window(img.mlx, img.win_ptr, img.img_perso, img.x * 32,

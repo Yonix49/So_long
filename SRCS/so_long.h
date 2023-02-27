@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:09:58 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/27 13:31:05 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:58:02 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,31 +60,7 @@ typedef struct s_data
 	t_player	t_player;
 	cord		cord;
 }				t_data;
-// typedef struct s_data_img
-// {
-// 	void			*img;
-// 	char			*addr;
-// 	int				bpp;
-// 	int				line_l;
-// 	int				endian;
-// }					t_data_img;
 
-// typedef struct s_data_engine
-// {
-// 	t_data_img		*img;
-// 	t_data_img		*tmp;
-// 	t_element		*element;
-// 	t_init			*init;
-// 	t_map			*map;
-// 	t_player		*player;
-// 	t_monster		**monster;
-// 	struct timeval	tv;
-// 	int				nb_monster;
-// 	int				nb_coup;
-// }					t_data_engine;
-
-// # include "../minilibx-linux/mlx.h"
-// # include "../minilibx-linux/mlx_int.h"
 # include <fcntl.h>
 # include <stddef.h>
 # include <stdio.h>

@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 23:11:28 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/27 13:32:07 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:55:02 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,6 @@ int	is_valid_path_exit(char **map, struct cord pos)
 
 	return (0);
 }
+
+
 
