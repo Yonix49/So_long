@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:09:58 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/25 14:22:49 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/27 13:31:05 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ struct cord		cord_exit(char **map, struct cord cord);
 
 struct cord		cord_all(char **map, struct cord pos);
 
-int				is_valid_path(char **map, struct cord pos);
+int				is_valid_path_exit(char **map, struct cord pos);
 char			*ft_strjoin1(char const *s1, char const *s2);
 int				ft_strcmp(const char *s1, const char *s2);
 int				verif_namearg(int argc, char **argv);
@@ -141,7 +141,7 @@ char			**copy_map(char **map, t_data img);
 void			move_char(t_data img);
 int				key_hook(int key_code, t_data img, char **map);
 t_data			get_cord_player(t_data img, char **map);
-
+int				verif_co(char **map);
 // unsigned int		get_color_pixel(t_data_engine *engine, void *img, int y,
 // 						int x);
 

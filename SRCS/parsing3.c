@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 15:37:55 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/23 19:01:22 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/27 13:29:53 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	is_char_sett(char *map)
 
 int	verifall(char **map)
 {
-	struct cord pos;
+	struct cord	pos;
 
 	if (!(verif_bords(map) == 1))
 	{
@@ -45,10 +45,35 @@ int	verifall(char **map)
 		write(2, "La map n'est pas rectangulaire Error\n", 38);
 		return (0);
 	}
-	else if (!(is_valid_path(map, cord_all(map, pos)) == 1))
+	else if (!(is_valid_path_exit(map, cord_all(map, pos)) == 1))
 	{
-		write(2, "Chemin Error \n", 15);
+		write(2, "Exit Error \n", 13);
 		return (0);
+	}
+	else if (verif_co(map) == 0)
+	{
+		write(2, "Collectible Error\n", 19);
+		return (0);
+	}
+	return (1);
+}
+
+int	verif_co(char **map)
+{
+	int	i;
+	int	y;
+
+	i = 0;
+	while (map[i])
+	{
+		y = 0;
+		while (map[i][y])
+		{
+			if (map[i][y] == 'C')
+				return (0);
+			y++;
+		}
+		i++;
 	}
 	return (1);
 }
