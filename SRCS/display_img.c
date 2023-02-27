@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:12:29 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/27 17:50:02 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/27 19:51:27 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ t_data	*init_image(t_data *img)
 	return (img);
 }
 
-
 void	set_display(t_data *img)
 {
 	img = get_cord_player(img);
@@ -43,8 +42,8 @@ void	set_display(t_data *img)
 			mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_mur, img->y
 					* 32, img->x * 32);
 			if (img->map[img->x][img->y] == '0')
-				mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_mur, img->y
-						* 32, img->x * 32);
+				mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_mur,
+						img->y * 32, img->x * 32);
 			if (img->map[img->x][img->y] == 'E')
 				mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_exit,
 						img->y * 32, img->x * 32);
@@ -54,7 +53,8 @@ void	set_display(t_data *img)
 			if (img->map[img->x][img->y] == 'P')
 			{
 				mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_perso,
-						img->t_player.player_y * 32, img->t_player.player_x * 32);
+						img->t_player.player_y * 32, img->t_player.player_x
+						* 32);
 			}
 			if (img->map[img->x][img->y] == '1')
 				mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_back,
@@ -69,8 +69,12 @@ void	display_window(t_data *img)
 {
 	img->mlx = mlx_init();
 	init_image(img);
-	img->win_ptr = mlx_new_window(img->mlx, (img->cord.col) * 32, (img->cord.lig)* 32, "so_long!");
+	img = get_cord_player(img);
+	img->win_ptr = mlx_new_window(img->mlx, (img->cord.col) * 32,
+			(img->cord.lig) * 32, "so_long!");
 	set_display(img);
 	mlx_key_hook(img->win_ptr, key_hook, img->map);
+	printf("	img->t_player.player_x = x %i;  img->t_player.player_y = y %i \n", img->t_player.player_x, img->t_player.player_y);
 	mlx_loop(img->mlx);
+		
 }

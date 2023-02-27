@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:09:58 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/27 17:47:37 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:55:12 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 #  define BUFFER_SIZE 100
 # endif
 
-#define KEY_W 119
-#define KEY_A 97
-#define KEY_S 115
-#define KEY_D 100
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
 
 typedef struct cord
 {
@@ -95,7 +95,7 @@ int				is_valid_path_exit(char **map, struct cord pos);
 int				verif_namearg(int argc, char **argv);
 int				verifall(char **map);
 // PARSING
-char	**get_map(t_data *img, char **argv);
+char			**get_map(t_data *img, char **argv);
 char			**copy_map(t_data *img);
 struct cord		get_map_ligne(char **map, struct cord cord);
 
@@ -110,17 +110,12 @@ struct cord		cord_all(char **map, struct cord pos);
 void			ft_free_double(char **map, char **tmp);
 void			ft_free(char **map);
 
-
-
-
-
 int				verif_co(char **map);
-t_data	*init_image(t_data *img);
-void	set_display(t_data *img);
-void	display_window(t_data *img);
-void		set_display(t_data *img);
-
-void		move_image(int key_code, t_data *img);
-int			key_hook(int key_code, t_data *img);
-t_data	*get_cord_player(t_data *img);
+t_data			*init_image(t_data *img);
+void			set_display(t_data *img);
+void			display_window(t_data *img);
+void			set_display(t_data *img);
+void			move_image(int key_code, t_data *img);
+int				key_hook(int key_code, t_data *img);
+t_data			*get_cord_player(t_data *img);
 #endif
