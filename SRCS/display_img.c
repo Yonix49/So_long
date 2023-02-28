@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:12:29 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/27 19:51:27 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:52:06 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,7 @@ void	display_window(t_data *img)
 	img->win_ptr = mlx_new_window(img->mlx, (img->cord.col) * 32,
 			(img->cord.lig) * 32, "so_long!");
 	set_display(img);
-	mlx_key_hook(img->win_ptr, key_hook, img->map);
-	printf("	img->t_player.player_x = x %i;  img->t_player.player_y = y %i \n", img->t_player.player_x, img->t_player.player_y);
+	mlx_key_hook(img->win_ptr, key_hook, img);
 	mlx_loop(img->mlx);
 		
 }

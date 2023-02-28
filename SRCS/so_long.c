@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:08:29 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/27 20:25:02 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:54:49 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,101 +14,26 @@
 #include "../minilibx-linux/mlx_int.h"
 #include "so_long.h"
 #include "string.h"
-
-void	move_image(int key_code, t_data *img)
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+void display_map(char **map)
 {
-	printf("%i\n", img->map[img->t_player.player_x][img->t_player.player_y]);
-	if (key_code == KEY_W
-		&& (img->map[img->t_player.player_x][img->t_player.player_y
-			+ 1] != '1'))
-	{
-		printf("Error");
-		printf("%i\n",
-				img->map[img->t_player.player_x][img->t_player.player_y]);
-		img->map[img->t_player.player_x][img->t_player.player_y] = '0';
-		img->t_player.player_y += 1;
-		img->map[img->t_player.player_x][img->t_player.player_y] = 'P';
-		set_display(img); // Déplacer l'image vers le haut
-	}
-	else if (key_code == KEY_A && (img->map[img->t_player.player_y
-				- 1][img->t_player.player_x] != '1'))
-	{
-		printf("Error");
-		img->map[img->t_player.player_x][img->t_player.player_y] = '0';
-		img->t_player.player_x -= 1;
-		img->map[img->t_player.player_x][img->t_player.player_y] = 'P';
-		set_display(img);
-	} // Touche A
-	else if (key_code == KEY_S
-			&& (img->map[img->t_player.player_x][img->t_player.player_y
-				- 1] != '1'))
-	{
-		printf("Error");
-		img->map[img->t_player.player_x][img->t_player.player_y] = '0';
-		img->t_player.player_y -= 1;
-		img->map[img->t_player.player_x][img->t_player.player_y] = 'P';
-		set_display(img); // Déplacer l'image vers le bas
-	}
-	else if (key_code == KEY_D && (img->map[img->t_player.player_x
-				+ 1][img->t_player.player_y] != '1'))
-	{
-		printf("Error");
-		img->map[img->t_player.player_x][img->t_player.player_y] = '0';
-		img->t_player.player_x += 1;
-		img->map[img->t_player.player_x][img->t_player.player_y] = 'P';
-		set_display(img); // Déplacer l'image vers le bas
-	}                     // Touche D
-}
+    int i, j;
 
-int	key_hook(int key_code, t_data *img)
-{
-	// img = get_cord_player(img);
-	(void)(img);
-	if (key_code == KEY_W || key_code == KEY_A || key_code == KEY_S
-		|| key_code == KEY_D)
-	{
-		move_image(key_code, img);
-	}
-	if (key_code == KEY_W
-			&& (img->map[img->t_player.player_x][img->t_player.player_y
-				+ 1] != '1'))
-	{
-		printf("Error");
-		img->map[img->t_player.player_x][img->t_player.player_y] = '0';
-		img->t_player.player_y += 1;
-		img->map[img->t_player.player_x][img->t_player.player_y] = 'P';
-		set_display(img); // Déplacer l'image vers le haut
-	}
-	else if (key_code == KEY_A && (img->map[img->t_player.player_y
-				- 1][img->t_player.player_x] != '1'))
-	{
-		printf("Error");
-		img->map[img->t_player.player_x][img->t_player.player_y] = '0';
-		img->t_player.player_x -= 1;
-		img->map[img->t_player.player_x][img->t_player.player_y] = 'P';
-		set_display(img);
-	} // Touche A
-	else if (key_code == KEY_S
-			&& (img->map[img->t_player.player_x][img->t_player.player_y
-				- 1] != '1'))
-	{
-		printf("Error");
-		img->map[img->t_player.player_x][img->t_player.player_y] = '0';
-		img->t_player.player_y -= 1;
-		img->map[img->t_player.player_x][img->t_player.player_y] = 'P';
-		set_display(img); // Déplacer l'image vers le bas
-	}
-	else if (key_code == KEY_D && (img->map[img->t_player.player_x
-				+ 1][img->t_player.player_y] != '1'))
-	{
-		printf("Error");
-		img->map[img->t_player.player_x][img->t_player.player_y] = '0';
-		img->t_player.player_x += 1;
-		img->map[img->t_player.player_x][img->t_player.player_y] = 'P';
-		set_display(img); // Déplacer l'image vers le bas
-	}                     // Touche D
-	return (0);
+    for (i = 0; map[i]; i++)
+    {
+        for (j = 0; map[i][j]; j++)
+        {
+            printf("%c", map[i][j]);
+        }
+        printf("\n");
+    }
 }
+// void	move_image(int key_code, t_data *img)
+// {
+// }
 
 t_data	*get_cord_player(t_data *img)
 {
@@ -133,6 +58,51 @@ t_data	*get_cord_player(t_data *img)
 	}
 	return (img);
 }
+int	key_hook(int key_code, t_data *img)
+{
+
+	printf("key == %i\n", key_code);
+		printf("	img->t_player.player_x = x %i;  img->t_player.player_y = y %i \n", img->t_player.player_x, img->t_player.player_y);
+	img  = get_cord_player(img);
+
+	// if (key_code == KEY_W || key_code == KEY_A || key_code == KEY_S
+	// 	|| key_code == KEY_D)
+	// 	move_image(key_code, img);
+	if (key_code == KEY_W
+			&& (img->map[img->t_player.player_x - 1][img->t_player.player_y] != '1'))
+	{
+		printf("W key entrer\n");
+		img->map[img->t_player.player_x][img->t_player.player_y] = '0';
+		img->t_player.player_x -= 1;
+		img->map[img->t_player.player_x][img->t_player.player_y] = 'P';; // Déplacer l'image vers le haut
+	}
+	else if (key_code == KEY_S
+			&& (img->map[img->t_player.player_x + 1][img->t_player.player_y] != '1'))
+	{
+		printf("key_s entrer \n");
+		img->map[img->t_player.player_x][img->t_player.player_y] = '0';
+		img->t_player.player_x += 1;
+		img->map[img->t_player.player_x][img->t_player.player_y] = 'P'; // Déplacer l'image vers le bas
+	}
+	else if (key_code == KEY_A && (img->map[img->t_player.player_x][img->t_player.player_y - 1] != '1'))
+	{
+		printf("A key enter\n");
+		img->map[img->t_player.player_x][img->t_player.player_y] = '0';
+		img->t_player.player_y -= 1;
+		img->map[img->t_player.player_x][img->t_player.player_y] = 'P';
+	} // Touche A
+	else if (key_code == KEY_D && (img->map[img->t_player.player_x
+				][img->t_player.player_y + 1] != '1'))
+	{
+		printf("key_d entrer\n");
+		img->map[img->t_player.player_x][img->t_player.player_y] = '0';
+		img->t_player.player_y += 1;
+		img->map[img->t_player.player_x][img->t_player.player_y] = 'P'; // Déplacer l'image vers le bas
+	}
+	set_display(img);                    // Touche D
+	return (0);
+}
+
 
 int	main(int ac, char **av)
 {
@@ -153,6 +123,7 @@ int	main(int ac, char **av)
 		ft_free_double(img->map, tmp);
 		return (0);
 	}
+	display_map(img->map);
 	display_window(img);
 	ft_free_double(img->map, tmp);
 	return (0);
