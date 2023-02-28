@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:09:58 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/28 13:51:33 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:54:04 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define KEY_A 97
 # define KEY_S 115
 # define KEY_D 100
+# define KEY_ESC 65307
 
 typedef struct cord
 {
@@ -57,6 +58,7 @@ typedef struct s_data
 	int			height;
 	int			x;
 	int			y;
+	int			nb_mouvement;
 	int			conso;
 	t_player	t_player;
 	cord		cord;
@@ -116,13 +118,18 @@ t_data			*init_image(t_data *img);
 void			set_display(t_data *img);
 void			display_window(t_data *img);
 void			set_display(t_data *img);
-void			move_image(int key_code, t_data *img);
-int				key_hook(int key_code, t_data *img);
 t_data			*get_cord_player(t_data *img);
 
-
-
-
-void 			display_map(char **map);
+int				ft_putnbr(int n, int fd);
+void			ft_putnbr_fd(int n, int fd);
+void			ft_putchar_fd(char c, int fd);
+int				key_hook(int key_code, t_data *img);
+void			move_image_W(int key_code, t_data *img);
+void			move_image_S(int key_code, t_data *img);
+void			move_image_A(int key_code, t_data *img);
+void			move_image_D(int key_code, t_data *img);
+void			display_map(char **map);
+int				compte_co(t_data *img);
+void 			quit_esc(t_data *img);
 
 #endif

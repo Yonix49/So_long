@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 19:48:49 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/21 16:57:38 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:52:50 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,42 @@ char	*ft_strjoin_1(char *s1, char *s2)
 	str[i + j] = '\0';
 	free(s1);
 	return (str);
+}
+
+int	ft_putnbr(int n, int fd)
+{
+	long int	nb;
+
+	nb = (long int)n;
+	if (nb == -2147483648)
+	{
+		ft_putchar_fd ('-', fd);
+		ft_putchar_fd ('2', fd);
+		nb = 147483648;
+	}	
+	if (nb >= 0 && nb <= 9)
+	{
+		ft_putchar_fd (nb + 48, fd);
+	}
+	if (nb < 0)
+	{
+		write(fd, "-", 1);
+		ft_putnbr (nb * (-1), fd);
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr (nb / 10, fd);
+		ft_putnbr (nb % 10, fd);
+	}
+	return (0);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	ft_putnbr (n, fd);
+}
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
 }

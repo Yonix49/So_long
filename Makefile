@@ -6,7 +6,7 @@
 #    By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 15:25:26 by mhajji-b          #+#    #+#              #
-#    Updated: 2023/02/27 17:34:41 by mhajji-b         ###   ########.fr        #
+#    Updated: 2023/02/28 16:00:45 by mhajji-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC_DIR = ./SRCS
 
 SRCS	= cord_start_ext.c ft_split.c get_next_line.c get_next_line_utils.c parsing.c\
 			pathfinding.c so_long.c utils_1.c parsing2.c parsing3.c display_img.c\
-			get_map.c
+			get_map.c move_image.c
 			
 
 OBJS			=	$(addprefix $(SRC_DIR)/, $(SRCS:%.c=%.o))
