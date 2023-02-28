@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:12:29 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/28 11:52:06 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:00:16 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ t_data	*init_image(t_data *img)
 			&img->width, &img->height);
 	img->img_exit = mlx_xpm_file_to_image(img->mlx, "Items/Exit_Fontaine.xpm",
 			&img->width, &img->height);
-	img->img_conso = mlx_xpm_file_to_image(img->mlx, "Items/conso.xpm",
+	img->img_conso = mlx_xpm_file_to_image(img->mlx, "Items/piece.xpm",
 			&img->width, &img->height);
-	img->img_perso = mlx_xpm_file_to_image(img->mlx, "Items/perso.xpm",
+	img->img_perso = mlx_xpm_file_to_image(img->mlx, "Items/perso777.xpm",
 			&img->width, &img->height);
 	img->img_back = mlx_xpm_file_to_image(img->mlx, "Items/background.xpm",
 			&img->width, &img->height);
@@ -30,10 +30,10 @@ t_data	*init_image(t_data *img)
 	img->x = 0;
 	return (img);
 }
-
 void	set_display(t_data *img)
 {
 	img = get_cord_player(img);
+	img->x = 0;
 	while (img->map[img->x])
 	{
 		img->y = 0;
@@ -67,13 +67,20 @@ void	set_display(t_data *img)
 
 void	display_window(t_data *img)
 {
+	while (1)
+	{
+
 	img->mlx = mlx_init();
 	init_image(img);
 	img = get_cord_player(img);
-	img->win_ptr = mlx_new_window(img->mlx, (img->cord.col) * 32,
-			(img->cord.lig) * 32, "so_long!");
+	img->win_ptr = mlx_new_window(img->mlx, (img->cord.col) * 33,
+			(img->cord.lig) * 33, "so_long!");
 	set_display(img);
 	mlx_key_hook(img->win_ptr, key_hook, img);
+	// mlx_clear_window(img->mlx, img->win_ptr);
+	// set_display(img);
+
 	mlx_loop(img->mlx);
+	}
 		
 }

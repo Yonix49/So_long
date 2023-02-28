@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:09:58 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/28 11:52:37 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:51:33 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_data
 	int			height;
 	int			x;
 	int			y;
+	int			conso;
 	t_player	t_player;
 	cord		cord;
 }				t_data;
@@ -118,4 +119,10 @@ void			set_display(t_data *img);
 void			move_image(int key_code, t_data *img);
 int				key_hook(int key_code, t_data *img);
 t_data			*get_cord_player(t_data *img);
+
+
+
+
+void 			display_map(char **map);
+
 #endif
