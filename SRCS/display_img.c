@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:12:29 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/28 16:54:34 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:13:34 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	display_window(t_data *img)
 	img->mlx = mlx_init();
 	init_image(img);
 	img = get_cord_player(img);
-	img->win_ptr = mlx_new_window(img->mlx, (img->cord.col) * 33,
-			(img->cord.lig) * 33, "so_long!");
+	img->win_ptr = mlx_new_window(img->mlx, (img->cord.col) * 32,
+			(img->cord.lig) * 32, "so_long!");
 	set_display(img);
 	mlx_key_hook(img->win_ptr, key_hook, img);
 	mlx_loop(img->mlx);

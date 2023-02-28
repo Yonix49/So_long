@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:09:58 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/28 16:54:04 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/28 19:01:11 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ typedef struct s_data
 	void		*img_exit;
 	void		*img_conso;
 	void		*img_perso;
-	void		*win_ptr;
 	void		*img_back;
+	void		*win_ptr;
 	int			width;
 	int			height;
 	int			x;
@@ -124,12 +124,14 @@ int				ft_putnbr(int n, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putchar_fd(char c, int fd);
 int				key_hook(int key_code, t_data *img);
-void			move_image_W(int key_code, t_data *img);
-void			move_image_S(int key_code, t_data *img);
-void			move_image_A(int key_code, t_data *img);
-void			move_image_D(int key_code, t_data *img);
+void			move_image_W(t_data *img);
+void			move_image_S(t_data *img);
+void			move_image_A(t_data *img);
+void			move_image_D(t_data *img);
 void			display_map(char **map);
 int				compte_co(t_data *img);
-void 			quit_esc(t_data *img);
-
+void			quit_esc(t_data *img);
+void			free_images(t_data *img);
+void	ft_colle(char *dest, char *ss1, char *ss2);
+char	*ft_strjoin_1(char const *s1, char const *s2);
 #endif

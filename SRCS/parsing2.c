@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:38:52 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/23 21:04:44 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:26:37 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	ft_free_double(char **map, char **tmp)
 		i++;
 	}
 	free(map);
-	
 	i = 0;
 	while (tmp[i])
 	{

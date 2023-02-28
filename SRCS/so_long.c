@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:08:29 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/28 16:56:37 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/28 19:04:10 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ int	compte_co(t_data *img)
 
 
 
-
 int	main(int ac, char **av)
 {
 	char **tmp;
@@ -82,7 +81,8 @@ int	main(int ac, char **av)
 
 	tmp = NULL;
 	img = (t_data *)malloc(sizeof(t_data));
-	img->map = NULL;
+	if (!img)
+		return (0);
 	if (verif_open(av) == 0 || verif_namearg(ac, av) == 0)
 		return (0);
 	img->map = get_map(img, av);
@@ -94,7 +94,10 @@ int	main(int ac, char **av)
 		ft_free_double(img->map, tmp);
 		return (0);
 	}
-	display_window(img);
+
 	ft_free_double(img->map, tmp);
+	free(img);
+	// display_window(img);
+	
 	return (0);
 }

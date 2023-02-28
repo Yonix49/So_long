@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:42:28 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/24 16:19:22 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:12:09 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ struct cord	get_map_col(char **map, struct cord cord)
 	int	i;
 
 	i = ft_strlen(map[0]);
-		i--;
 	cord.col = i;
 	return (cord);
 }
