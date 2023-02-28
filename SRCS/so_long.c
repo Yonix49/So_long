@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:08:29 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/28 16:01:43 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:56:37 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ int	main(int ac, char **av)
 		ft_free_double(img->map, tmp);
 		return (0);
 	}
-	compte_co(img);
 	display_window(img);
 	ft_free_double(img->map, tmp);
 	return (0);
