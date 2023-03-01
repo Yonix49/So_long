@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:57:25 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 12:13:31 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:34:53 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 int	key_hook(int key_code, t_data *img)
 {
-	if (key_code == key_w && (img->map[img->t_player.player_x
+	if (key_code == KEY_W && (img->map[img->t_player.player_x
 				- 1][img->t_player.player_y] != '1'))
 		move_image_w(img);
-	else if (key_code == key_s && (img->map[img->t_player.player_x
+	else if (key_code == KEY_S && (img->map[img->t_player.player_x
 				+ 1][img->t_player.player_y] != '1'))
 		move_image_s(img);
-	else if (key_code == key_a
+	else if (key_code == KEY_A
 		&& (img->map[img->t_player.player_x][img->t_player.player_y
 			- 1] != '1'))
 		move_image_a(img);
-	else if (key_code == key_d
+	else if (key_code == KEY_D
 		&& (img->map[img->t_player.player_x][img->t_player.player_y
 			+ 1] != '1'))
 		move_image_d(img);
-	else if (key_code == key_esc)
+	else if (key_code == KEY_ESC)
 		quit_esc(img);
 	return (0);
 }

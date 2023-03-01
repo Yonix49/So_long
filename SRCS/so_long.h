@@ -6,22 +6,30 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:09:58 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 12:19:54 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:38:22 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
+# include "../minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx_int.h"
+# include <fcntl.h>
+# include <stddef.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/stat.h>
+# include <sys/types.h>
+# include <unistd.h>
 # define SO_LONG_H
-
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
 # endif
 
-# define key_w 119
-# define key_a 97
-# define key_s 115
-# define key_d 100
-# define key_esc 65307
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+# define KEY_ESC 65307
 
 typedef struct cord
 {
@@ -64,15 +72,6 @@ typedef struct s_data
 	cord		cord;
 }				t_data;
 
-# include <fcntl.h>
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <sys/stat.h>
-# include <sys/types.h>
-# include <unistd.h>
-#include "../minilibx-linux/mlx.h"
-#include "../minilibx-linux/mlx_int.h"
 int				ft_strlen(const char *s);
 
 char			*ft_strdup(char *src);
@@ -96,7 +95,7 @@ int				is_char_sett(char *map);
 int				verif_open(char **argv);
 int				ft_strcmp(const char *s1, const char *s2);
 int				verif_elem(char **map);
-int  			verif_elem_2(char **map, int item, int exit, int start);
+int				verif_elem_2(char **map, int item, int exit, int start);
 int				is_valid_path_exit(char **map, struct cord pos);
 int				verif_namearg(int argc, char **argv);
 int				verifall(char **map);
