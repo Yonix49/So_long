@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 15:37:55 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 12:41:03 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:06:03 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	is_char_sett(char *map)
 
 int	verifall(char **map)
 {
-	struct cord	pos;
+	t_cord	pos;
 
 	if (!(verif_bords(map) == 1))
 	{

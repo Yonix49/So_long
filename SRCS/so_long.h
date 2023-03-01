@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:09:58 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 14:38:22 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:18:49 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define KEY_D 100
 # define KEY_ESC 65307
 
-typedef struct cord
+typedef struct s_cord
 {
 	int			start_x;
 	int			start_y;
@@ -39,7 +39,7 @@ typedef struct cord
 	int			end_y;
 	int			lig;
 	int			col;
-}				cord;
+}				t_cord;
 
 typedef struct s_player
 {
@@ -69,7 +69,7 @@ typedef struct s_data
 	int			nb_mouvement;
 	int			conso;
 	t_player	t_player;
-	cord		cord;
+	t_cord		cord;
 }				t_data;
 
 int				ft_strlen(const char *s);
@@ -96,7 +96,6 @@ int				verif_open(char **argv);
 int				ft_strcmp(const char *s1, const char *s2);
 int				verif_elem(char **map);
 int				verif_elem_2(char **map, int item, int exit, int start);
-int				is_valid_path_exit(char **map, struct cord pos);
 int				verif_namearg(int argc, char **argv);
 int				verifall(char **map);
 // PARSING
@@ -105,15 +104,23 @@ char			**copy_map(t_data *img);
 void			ft_colle(char *dest, char *ss1, char *ss2);
 char			*ft_strjoin_1(char *s1, char *s2);
 // Get_map
-struct cord		get_map_ligne(char **map, struct cord cord);
+// int				is_valid_path_exit(char **map, struct cord pos);
+// struct cord		get_map_ligne(char **map, struct cord cord);
 
-struct cord		get_map_col(char **map, struct cord cord);
+// struct cord		get_map_col(char **map, struct cord cord);
 
-struct cord		cord_start(char **map, struct cord cord);
+// struct cord		cord_start(char **map, struct cord cord);
 
-struct cord		cord_exit(char **map, struct cord cord);
+// struct cord		cord_exit(char **map, struct cord cord);
 
-struct cord		cord_all(char **map, struct cord pos);
+// struct cord		cord_all(char **map, struct cord pos);
+t_cord			cord_start(char **map, t_cord cord);
+t_cord			cord_exit(char **map, t_cord cord);
+t_cord			get_map_col(char **map, t_cord cord);
+t_cord			get_map_ligne(char **map, t_cord cord);
+int				is_valid_path_exit(char **map, t_cord pos);
+t_cord			cord_all(char **map, t_cord pos);
+
 // Exit funtion
 void			ft_free_all(t_data *img);
 void			ft_free(char **map);

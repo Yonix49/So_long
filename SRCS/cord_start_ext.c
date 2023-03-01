@@ -6,13 +6,13 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:42:28 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 11:52:13 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:09:24 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-struct cord	cord_start(char **map, struct cord cord)
+t_cord	cord_start(char **map, t_cord cord)
 {
 	int	i;
 	int	p;
@@ -36,7 +36,7 @@ struct cord	cord_start(char **map, struct cord cord)
 	return (cord);
 }
 
-struct cord	cord_exit(char **map, struct cord cord)
+t_cord	cord_exit(char **map, t_cord cord)
 {
 	int	i;
 	int	p;
@@ -60,7 +60,7 @@ struct cord	cord_exit(char **map, struct cord cord)
 	return (cord);
 }
 
-struct cord	get_map_col(char **map, struct cord cord)
+t_cord	get_map_col(char **map, t_cord cord)
 {
 	int	i;
 
@@ -69,7 +69,7 @@ struct cord	get_map_col(char **map, struct cord cord)
 	return (cord);
 }
 
-struct cord	get_map_ligne(char **map, struct cord cord)
+t_cord	get_map_ligne(char **map, t_cord cord)
 {
 	int	i;
 
