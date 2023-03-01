@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:38:52 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 12:45:38 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:56:05 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,13 @@ int	verif_open(char **argv)
 	int	fd;
 
 	fd = open(argv[1], O_RDONLY);
-	if (fd <= 0)
+	if (fd < 0)
 	{
-		close(fd);
 		write(2, "Fichier inexistant\n", 18);
 		return (0);
 	}
 	if (check_file_not_empty(fd) == 0)
 	{
-		close(fd);
 		write(2, "Map Vide Error\n", 16);
 		return (0);
 	}

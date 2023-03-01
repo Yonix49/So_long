@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:12:29 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 12:03:17 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:51:37 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,10 @@ int	display_window(t_data *img)
 	img->nb_mouvement = 0;
 	img->mlx = mlx_init();
 	if (init_image(img) == 0)
-		return (0);
+	{
+		write(2, "Loading files error\n", 21);
+		return (-1);
+	}
 	img->cord = cord_all(img->map, img->cord);
 	img = get_cord_player(img);
 	img->win_ptr = mlx_new_window(img->mlx, (img->cord.col) * 32,
