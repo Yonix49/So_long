@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 19:48:49 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/28 15:52:50 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:55:12 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,30 +75,30 @@ int	ft_putnbr(int n, int fd)
 	nb = (long int)n;
 	if (nb == -2147483648)
 	{
-		ft_putchar_fd ('-', fd);
-		ft_putchar_fd ('2', fd);
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
 		nb = 147483648;
-	}	
+	}
 	if (nb >= 0 && nb <= 9)
 	{
-		ft_putchar_fd (nb + 48, fd);
+		ft_putchar_fd(nb + 48, fd);
 	}
 	if (nb < 0)
 	{
 		write(fd, "-", 1);
-		ft_putnbr (nb * (-1), fd);
+		ft_putnbr(nb * (-1), fd);
 	}
 	if (nb >= 10)
 	{
-		ft_putnbr (nb / 10, fd);
-		ft_putnbr (nb % 10, fd);
+		ft_putnbr(nb / 10, fd);
+		ft_putnbr(nb % 10, fd);
 	}
 	return (0);
 }
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	ft_putnbr (n, fd);
+	ft_putnbr(n, fd);
 }
 
 void	ft_putchar_fd(char c, int fd)

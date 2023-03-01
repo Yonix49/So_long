@@ -6,11 +6,12 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:38:52 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/28 18:26:37 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:54:52 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 int		check_file_not_empty(int fd)
 {
 	char	c;
@@ -19,7 +20,6 @@ int		check_file_not_empty(int fd)
 		return (0);
 	return (1);
 }
-
 
 int	verif_open(char **argv)
 {
@@ -41,6 +41,7 @@ int	verif_open(char **argv)
 	close(fd);
 	return (1);
 }
+
 int	verif_namearg(int argc, char **argv)
 {
 	char	*filename;
@@ -60,25 +61,21 @@ int	verif_namearg(int argc, char **argv)
 	}
 	return (1);
 }
-void	ft_free_double(char **map, char **tmp)
+
+void	ft_free_all(t_data *img)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (map[i])
+	while (img->map[i])
 	{
-		free(map[i]);
+		free(img->map[i]);
 		i++;
 	}
-	free(map);
-	i = 0;
-	while (tmp[i])
-	{
-		free(tmp[i]);
-		i++;
-	}
-	free(tmp);
+	free(img->map);
+	free(img);
 }
+
 void	ft_free(char **map)
 {
 	int i;

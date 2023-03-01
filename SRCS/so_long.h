@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:09:58 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/28 19:01:11 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:51:00 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ typedef struct s_data
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <unistd.h>
+#include "../minilibx-linux/mlx.h"
+#include "../minilibx-linux/mlx_int.h"
 int				ft_strlen(const char *s);
 
 char			*ft_strdup(char *src);
@@ -100,6 +102,9 @@ int				verifall(char **map);
 // PARSING
 char			**get_map(t_data *img, char **argv);
 char			**copy_map(t_data *img);
+void			ft_colle(char *dest, char *ss1, char *ss2);
+char			*ft_strjoin_1(char *s1, char *s2);
+// Get_map
 struct cord		get_map_ligne(char **map, struct cord cord);
 
 struct cord		get_map_col(char **map, struct cord cord);
@@ -109,14 +114,18 @@ struct cord		cord_start(char **map, struct cord cord);
 struct cord		cord_exit(char **map, struct cord cord);
 
 struct cord		cord_all(char **map, struct cord pos);
-
-void			ft_free_double(char **map, char **tmp);
+// Exit funtion
+void			ft_free_all(t_data *img);
 void			ft_free(char **map);
+void			quit_esc(t_data *img);
+void			free_images(t_data *img);
+void			ft_game_over(t_data *img);
 
+//////////////////////////////////////////////////
 int				verif_co(char **map);
-t_data			*init_image(t_data *img);
+int				init_image(t_data *img);
 void			set_display(t_data *img);
-void			display_window(t_data *img);
+int				display_window(t_data *img);
 void			set_display(t_data *img);
 t_data			*get_cord_player(t_data *img);
 
@@ -128,10 +137,5 @@ void			move_image_W(t_data *img);
 void			move_image_S(t_data *img);
 void			move_image_A(t_data *img);
 void			move_image_D(t_data *img);
-void			display_map(char **map);
 int				compte_co(t_data *img);
-void			quit_esc(t_data *img);
-void			free_images(t_data *img);
-void	ft_colle(char *dest, char *ss1, char *ss2);
-char	*ft_strjoin_1(char const *s1, char const *s2);
 #endif

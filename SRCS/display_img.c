@@ -6,15 +6,13 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:12:29 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/28 17:13:34 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:52:29 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minilibx-linux/mlx.h"
-#include "../minilibx-linux/mlx_int.h"
 #include "so_long.h"
 
-t_data	*init_image(t_data *img)
+int	init_image(t_data *img)
 {
 	img->img_mur = mlx_xpm_file_to_image(img->mlx, "Items/Snow32x32.xpm",
 			&img->width, &img->height);
@@ -26,10 +24,12 @@ t_data	*init_image(t_data *img)
 			&img->width, &img->height);
 	img->img_back = mlx_xpm_file_to_image(img->mlx, "Items/background.xpm",
 			&img->width, &img->height);
-	img->cord = cord_all(img->map, img->cord);
-	img->x = 0;
-	return (img);
+	if (!img->img_mur || !img->img_exit || !img->img_conso || !img->img_perso
+		|| !img->img_back)
+		return (0);
+	return (1);
 }
+
 void	set_display(t_data *img)
 {
 	img = get_cord_player(img);
@@ -65,17 +65,20 @@ void	set_display(t_data *img)
 	}
 }
 
-void	display_window(t_data *img)
+int	display_window(t_data *img)
 {
-	
 	img->nb_mouvement = 0;
 	img->mlx = mlx_init();
-	init_image(img);
+	if (init_image(img) == 0)
+		return (0);
+	img->cord = cord_all(img->map, img->cord);
 	img = get_cord_player(img);
 	img->win_ptr = mlx_new_window(img->mlx, (img->cord.col) * 32,
 			(img->cord.lig) * 32, "so_long!");
 	set_display(img);
 	mlx_key_hook(img->win_ptr, key_hook, img);
+	mlx_hook(img->win_ptr, 17, 0, mlx_loop_end, img->mlx);
 	mlx_loop(img->mlx);
-		
+	ft_game_over(img);
+	return (1);
 }

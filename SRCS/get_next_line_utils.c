@@ -6,11 +6,12 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:18:57 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/23 20:36:34 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:53:47 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 size_t	ft_strlen1(const char *s)
 {
 	size_t	i;

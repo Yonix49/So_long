@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 17:42:28 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/28 17:12:09 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:52:13 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ struct cord	cord_exit(char **map, struct cord cord)
 	}
 	return (cord);
 }
+
 struct cord	get_map_col(char **map, struct cord cord)
 {
 	int	i;
@@ -67,14 +68,14 @@ struct cord	get_map_col(char **map, struct cord cord)
 	cord.col = i;
 	return (cord);
 }
+
 struct cord	get_map_ligne(char **map, struct cord cord)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (map[i])
 		i++;
 	cord.lig = i;
-
 	return (cord);
 }

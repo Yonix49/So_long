@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:57:25 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/28 17:20:07 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:54:06 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,19 @@ int	key_hook(int key_code, t_data *img)
 		quit_esc(img);
 	return (0);
 }
+
 void	quit_esc(t_data *img)
 {
-	mlx_destroy_window(img->mlx, img->win_ptr);
+	ft_game_over(img);
 	exit(0);
 }
+
 void	move_image_W(t_data *img)
 {
 	if (img->map[img->t_player.player_x - 1][img->t_player.player_y] == 'E'
 		&& compte_co(img) == 0)
 	{
-		mlx_destroy_window(img->mlx, img->win_ptr);
+		ft_game_over(img);
 		exit(0);
 	}
 	else if (img->map[img->t_player.player_x - 1][img->t_player.player_y] == 'E'
@@ -65,7 +67,7 @@ void	move_image_S(t_data *img)
 	if (img->map[img->t_player.player_x + 1][img->t_player.player_y] == 'E'
 		&& compte_co(img) == 0)
 	{
-		mlx_destroy_window(img->mlx, img->win_ptr);
+		ft_game_over(img);
 		exit(0);
 	}
 	else if (img->map[img->t_player.player_x + 1][img->t_player.player_y] == 'E'
@@ -86,7 +88,7 @@ void	move_image_A(t_data *img)
 	if (img->map[img->t_player.player_x][img->t_player.player_y - 1] == 'E'
 		&& compte_co(img) == 0)
 	{
-		mlx_destroy_window(img->mlx, img->win_ptr);
+		ft_game_over(img);
 		exit(0);
 	}
 	else if (img->map[img->t_player.player_x][img->t_player.player_y - 1] == 'E'
@@ -107,7 +109,7 @@ void	move_image_D(t_data *img)
 	if (img->map[img->t_player.player_x][img->t_player.player_y + 1] == 'E'
 		&& compte_co(img) == 0)
 	{
-		mlx_destroy_window(img->mlx, img->win_ptr);
+		ft_game_over(img);
 		exit(0);
 	}
 	else if (img->map[img->t_player.player_x][img->t_player.player_y + 1] == 'E'
