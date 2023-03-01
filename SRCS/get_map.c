@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:15:01 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 11:53:42 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 12:05:44 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,11 @@ char	**get_map(t_data *img, char **argv)
 	{
 		tmp = get_next_line(fd);
 		if (tmp == NULL)
-		{
-			free(tmp);
 			break ;
-		}
 		line = ft_strjoin_1(line, tmp);
 		free(tmp);
 	}
+	free(tmp);
 	close(fd);
 	if ((is_char_sett(line)) == 0)
 	{
@@ -57,6 +55,6 @@ char	**copy_map(t_data *img)
 		copy[i] = ft_strdup(img->map[i]);
 		i++;
 	}
-	copy[i] = NULL; // Si jenleve je regle invalid read size mais
+	copy[i] = NULL;
 	return (copy);
 }

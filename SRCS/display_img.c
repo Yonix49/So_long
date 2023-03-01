@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:12:29 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 11:52:29 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 12:03:17 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,30 +39,34 @@ void	set_display(t_data *img)
 		img->y = 0;
 		while (img->map[img->x][img->y])
 		{
-			mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_mur, img->y
-					* 32, img->x * 32);
-			if (img->map[img->x][img->y] == '0')
-				mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_mur,
-						img->y * 32, img->x * 32);
-			if (img->map[img->x][img->y] == 'E')
-				mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_exit,
-						img->y * 32, img->x * 32);
-			if (img->map[img->x][img->y] == 'C')
-				mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_conso,
-						img->y * 32, img->x * 32);
-			if (img->map[img->x][img->y] == 'P')
-			{
-				mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_perso,
-						img->t_player.player_y * 32, img->t_player.player_x
-						* 32);
-			}
-			if (img->map[img->x][img->y] == '1')
-				mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_back,
-						img->y * 32, img->x * 32);
+			put_image(img);
 			img->y++;
 		}
 		img->x++;
 	}
+}
+
+void	put_image(t_data *img)
+{
+	mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_mur, img->y * 32,
+		img->x * 32);
+	if (img->map[img->x][img->y] == '0')
+		mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_mur, img->y
+			* 32, img->x * 32);
+	if (img->map[img->x][img->y] == 'E')
+		mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_exit, img->y
+			* 32, img->x * 32);
+	if (img->map[img->x][img->y] == 'C')
+		mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_conso, img->y
+			* 32, img->x * 32);
+	if (img->map[img->x][img->y] == 'P')
+	{
+		mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_perso,
+			img->t_player.player_y * 32, img->t_player.player_x * 32);
+	}
+	if (img->map[img->x][img->y] == '1')
+		mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_back, img->y
+			* 32, img->x * 32);
 }
 
 int	display_window(t_data *img)

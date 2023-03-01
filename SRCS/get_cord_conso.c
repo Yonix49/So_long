@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:48:42 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 11:50:01 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 12:04:30 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ t_data	*get_cord_player(t_data *img)
 
 int	compte_co(t_data *img)
 {
-	int i;
-	int y;
+	int	i;
+	int	y;
 
 	img->conso = 0;
 	i = 0;

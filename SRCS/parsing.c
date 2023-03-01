@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:27:22 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/22 15:26:58 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 12:36:17 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,27 @@ int	verif_map(char **map)
 
 int	verif_elem(char **map)
 {
-	int	i;
 	int	item;
 	int	exit;
 	int	start;
-	int	p;
 
 	start = 0;
 	exit = 0;
 	item = 0;
-	i = 1;
+	if (verif_elem_2(map, item, exit, start) == 1)
+	{
+		write(2, "Erreur Element\n", 16);
+		return (1);
+	}
+	return (0);
+}
+
+int	verif_elem_2(char **map, int item, int exit, int start)
+{
+	int	p;
+	int	i;
+
+	i = 0;
 	while (map[i])
 	{
 		p = 0;
@@ -79,16 +90,12 @@ int	verif_elem(char **map)
 				exit++;
 			if (map[i][p] != 'P' && map[i][p] != 'C' && map[i][p] != 'E'
 				&& map[i][p] != '0' && map[i][p] != '1')
-			{
-				write(2, "Erreur char\n", 13);
 				return (1);
-			}
 			p++;
 		}
 		i++;
 	}
-	if ((exit == 1) && (item >= 1) && (start == 1))
+	if (!(exit == 1) || !(item >= 1) || !(start == 1))
 		return (1);
-	write(2, "Erreur nb element\n",19);
 	return (0);
 }

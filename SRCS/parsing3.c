@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 15:37:55 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/02/27 13:29:53 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 12:41:03 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	verifall(char **map)
 		write(2, "Mur Error\n", 11);
 		return (0);
 	}
-	else if (!(verif_elem(map) == 1))
+	else if ((verif_elem(map) == 1))
 		return (0);
 	else if (!(verif_map(map) == 1))
 	{
@@ -52,7 +52,7 @@ int	verifall(char **map)
 	}
 	else if (verif_co(map) == 0)
 	{
-		write(2, "Collectible Error\n", 19);
+		write(2, "Collectible chemin Error\n", 26);
 		return (0);
 	}
 	return (1);

@@ -6,13 +6,13 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:38:52 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 11:54:52 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 12:45:38 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int		check_file_not_empty(int fd)
+int	check_file_not_empty(int fd)
 {
 	char	c;
 
@@ -26,7 +26,7 @@ int	verif_open(char **argv)
 	int	fd;
 
 	fd = open(argv[1], O_RDONLY);
-	if (fd <= 0 )
+	if (fd <= 0)
 	{
 		close(fd);
 		write(2, "Fichier inexistant\n", 18);
@@ -49,7 +49,7 @@ int	verif_namearg(int argc, char **argv)
 
 	if (argc < 2 || (argc > 2))
 	{
-		write(2, "Nb Argument non valide\n",24);
+		write(2, "Nb Argument non valide\n", 24);
 		return (0);
 	}
 	filename = argv[1];
@@ -78,7 +78,8 @@ void	ft_free_all(t_data *img)
 
 void	ft_free(char **map)
 {
-	int i;
+	int	i;
+
 	i = 0;
 	while (map[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 19:48:49 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 11:55:12 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 12:54:59 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_strjoin_1(char *s1, char *s2)
 	int		j;
 	char	*str;
 
-	i = 0;
+	i = -1;
 	j = 0;
 	if (!s1 && s2 && *s2)
 		return (ft_strdup(s2));
@@ -53,11 +53,8 @@ char	*ft_strjoin_1(char *s1, char *s2)
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (str == NULL)
 		return (NULL);
-	while (s1[i] != '\0')
-	{
+	while (s1[++i] != '\0')
 		str[i] = s1[i];
-		i++;
-	}
 	while (s2[j] != '\0')
 	{
 		str[i + j] = s2[j];
@@ -94,14 +91,4 @@ int	ft_putnbr(int n, int fd)
 		ft_putnbr(nb % 10, fd);
 	}
 	return (0);
-}
-
-void	ft_putnbr_fd(int n, int fd)
-{
-	ft_putnbr(n, fd);
-}
-
-void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
 }

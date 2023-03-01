@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:09:58 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 11:51:00 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/01 12:19:54 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 #  define BUFFER_SIZE 100
 # endif
 
-# define KEY_W 119
-# define KEY_A 97
-# define KEY_S 115
-# define KEY_D 100
-# define KEY_ESC 65307
+# define key_w 119
+# define key_a 97
+# define key_s 115
+# define key_d 100
+# define key_esc 65307
 
 typedef struct cord
 {
@@ -96,6 +96,7 @@ int				is_char_sett(char *map);
 int				verif_open(char **argv);
 int				ft_strcmp(const char *s1, const char *s2);
 int				verif_elem(char **map);
+int  			verif_elem_2(char **map, int item, int exit, int start);
 int				is_valid_path_exit(char **map, struct cord pos);
 int				verif_namearg(int argc, char **argv);
 int				verifall(char **map);
@@ -124,6 +125,8 @@ void			ft_game_over(t_data *img);
 //////////////////////////////////////////////////
 int				verif_co(char **map);
 int				init_image(t_data *img);
+void			put_image(t_data *img);
+
 void			set_display(t_data *img);
 int				display_window(t_data *img);
 void			set_display(t_data *img);
@@ -133,9 +136,9 @@ int				ft_putnbr(int n, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putchar_fd(char c, int fd);
 int				key_hook(int key_code, t_data *img);
-void			move_image_W(t_data *img);
-void			move_image_S(t_data *img);
-void			move_image_A(t_data *img);
-void			move_image_D(t_data *img);
+void			move_image_w(t_data *img);
+void			move_image_s(t_data *img);
+void			move_image_a(t_data *img);
+void			move_image_d(t_data *img);
 int				compte_co(t_data *img);
 #endif
