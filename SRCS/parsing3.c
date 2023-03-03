@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 15:37:55 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 15:06:03 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/03 13:45:10 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_char_sett(char *map)
 	i = 0;
 	while (map[i])
 	{
-		if (map[i] == '\n' && map[i + 1] == '\n')
+		if (ft_strlen(map) < 3 || (map[i] == '\n' && map[i + 1] == '\n'))
 		{
 			write(2, "Error Space\n", 13);
 			return (0);
