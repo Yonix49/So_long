@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:57:25 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/03 12:35:25 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/05 14:00:38 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	move_image_w(t_data *img)
 	if (img->map[img->t_player.player_x - 1][img->t_player.player_y] == 'E'
 		&& compte_co(img) == 0)
 	{
+		img->nb_mouvement++;
+		print_mouvement(img);
 		ft_game_over(img);
 		exit(0);
 	}
@@ -48,9 +50,7 @@ void	move_image_w(t_data *img)
 	img->t_player.player_x -= 1;
 	img->map[img->t_player.player_x][img->t_player.player_y] = 'P';
 	img->nb_mouvement++;
-	write(1, "nb mouvement == ", 16);
-	ft_putnbr_fd(img->nb_mouvement, 1);
-	write(1, "\n", 1);
+	print_mouvement(img);
 	set_display(img);
 }
 
@@ -59,6 +59,8 @@ void	move_image_s(t_data *img)
 	if (img->map[img->t_player.player_x + 1][img->t_player.player_y] == 'E'
 		&& compte_co(img) == 0)
 	{
+		img->nb_mouvement++;
+		print_mouvement(img);
 		ft_game_over(img);
 		exit(0);
 	}
@@ -69,9 +71,7 @@ void	move_image_s(t_data *img)
 	img->t_player.player_x += 1;
 	img->map[img->t_player.player_x][img->t_player.player_y] = 'P';
 	img->nb_mouvement++;
-	write(1, "nb mouvement == ", 16);
-	ft_putnbr_fd(img->nb_mouvement, 1);
-	write(1, "\n", 1);
+	print_mouvement(img);
 	set_display(img);
 }
 
@@ -80,6 +80,8 @@ void	move_image_a(t_data *img)
 	if (img->map[img->t_player.player_x][img->t_player.player_y - 1] == 'E'
 		&& compte_co(img) == 0)
 	{
+		img->nb_mouvement++;
+		print_mouvement(img);
 		ft_game_over(img);
 		exit(0);
 	}
@@ -90,9 +92,7 @@ void	move_image_a(t_data *img)
 	img->t_player.player_y -= 1;
 	img->map[img->t_player.player_x][img->t_player.player_y] = 'P';
 	img->nb_mouvement++;
-	write(1, "nb mouvement == ", 16);
-	ft_putnbr_fd(img->nb_mouvement, 1);
-	write(1, "\n", 1);
+	print_mouvement(img);
 	set_display(img);
 }
 
@@ -101,6 +101,8 @@ void	move_image_d(t_data *img)
 	if (img->map[img->t_player.player_x][img->t_player.player_y + 1] == 'E'
 		&& compte_co(img) == 0)
 	{
+		img->nb_mouvement++;
+		print_mouvement(img);
 		ft_game_over(img);
 		exit(0);
 	}
@@ -111,8 +113,6 @@ void	move_image_d(t_data *img)
 	img->t_player.player_y += 1;
 	img->map[img->t_player.player_x][img->t_player.player_y] = 'P';
 	img->nb_mouvement++;
-	write(1, "nb mouvement == ", 16);
-	ft_putnbr_fd(img->nb_mouvement, 1);
-	write(1, "\n", 1);
+	print_mouvement(img);
 	set_display(img);
 }
