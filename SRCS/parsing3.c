@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 15:37:55 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/05 14:09:59 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/05 16:16:39 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	is_char_sett(char *map)
 		if (map[0] == '\n' || ft_strlen(map) < 3 || (map[i] == '\n' && map[i
 					+ 1] == '\n'))
 		{
-			write(2, "Error Space\n", 13);
+			write(2, "Error\nSpace", 12);
 			return (0);
 		}
 		i++;
@@ -36,24 +36,24 @@ int	verifall(char **map)
 
 	if (!(verif_bords(map) == 1))
 	{
-		write(2, "Mur Error\n", 11);
+		write(2, "Error\nMur", 10);
 		return (0);
 	}
 	else if ((verif_elem(map) == 1))
 		return (0);
 	else if (!(verif_map(map) == 1))
 	{
-		write(2, "La map n'est pas rectangulaire Error\n", 38);
+		write(2, "Error\nLa map n'est pas rectangulaire", 37);
 		return (0);
 	}
 	else if (!(is_valid_path_exit(map, cord_all(map, pos)) == 1))
 	{
-		write(2, "Exit Error \n", 13);
+		write(2, "Exit\nPathfinding", 17);
 		return (0);
 	}
 	else if (verif_co(map) == 0)
 	{
-		write(2, "Collectible chemin Error\n", 26);
+		write(2, "Error\nCollectible chemin", 25);
 		return (0);
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:27:22 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/01 12:36:17 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/05 16:14:52 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	verif_elem(char **map)
 	item = 0;
 	if (verif_elem_2(map, item, exit, start) == 1)
 	{
-		write(2, "Erreur Element\n", 16);
+		write(2, "Error\nErreur Element", 21);
 		return (1);
 	}
 	return (0);
