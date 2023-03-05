@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:12:29 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/03 13:42:57 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/05 16:03:29 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void	set_display(t_data *img)
 
 void	put_image(t_data *img)
 {
-	mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_mur, img->y * 32,
-		img->x * 32);
 	if (img->map[img->x][img->y] == '0')
 		mlx_put_image_to_window(img->mlx, img->win_ptr, img->img_mur, img->y
 			* 32, img->x * 32);
@@ -84,6 +82,7 @@ int	display_window(t_data *img)
 			(img->cord.lig) * 32, "so_long!");
 	set_display(img);
 	mlx_key_hook(img->win_ptr, key_hook, img);
+	mlx_hook(img->win_ptr, 1, 1L << 0, key_hook, img);
 	mlx_hook(img->win_ptr, 17, 0, mlx_loop_end, img->mlx);
 	mlx_loop(img->mlx);
 	ft_game_over(img);
