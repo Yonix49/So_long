@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:09:58 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/05 13:55:16 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/06 14:53:49 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ void			move_image_s(t_data *img);
 void			move_image_a(t_data *img);
 void			move_image_d(t_data *img);
 void			print_mouvement(t_data *img);
+int				is_valid_path_co(char **map, t_cord pos);
 
 int				compte_co(t_data *img);
 #endif
