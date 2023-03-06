@@ -6,7 +6,7 @@
 /*   By: mhajji-b <mhajji-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:09:58 by mhajji-b          #+#    #+#             */
-/*   Updated: 2023/03/06 14:53:49 by mhajji-b         ###   ########.fr       */
+/*   Updated: 2023/03/06 19:26:16 by mhajji-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,7 @@ void			free_images(t_data *img);
 void			ft_game_over(t_data *img);
 
 //////////////////////////////////////////////////
-int				verif_co(char **map);
-int				init_image(t_data *img);
+int				verif_co(char **map, t_cord pos);
 void			put_image(t_data *img);
 
 void			set_display(t_data *img);
@@ -148,6 +147,9 @@ void			move_image_a(t_data *img);
 void			move_image_d(t_data *img);
 void			print_mouvement(t_data *img);
 int				is_valid_path_co(char **map, t_cord pos);
+void			flood_fill(int x, int y, t_cord pos, char **map);
+int				verif_exit(char **map);
+int				flood_fill_2(int x, int y, char **map);
 
 int				compte_co(t_data *img);
 #endif
