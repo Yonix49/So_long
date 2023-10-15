@@ -90,7 +90,7 @@ Copy code
 
 Si une erreur de configuration est détectée, le programme doit quitter proprement et retourner "Error\n" suivi d’un message d’erreur explicite de votre choix.
 ## Compilation et Exécution
-make (Cela vous permettra de compiler et d'exécuter votre jeu en suivant les instructions fournies)
-make re recompilation
-./so_long [fichier de carte]
+-make (Cela vous permettra de compiler et d'exécuter votre jeu en suivant les instructions fournies)
+-make re recompilation
+- ./so_long [fichier de carte]
 
